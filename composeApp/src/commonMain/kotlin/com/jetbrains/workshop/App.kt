@@ -2,6 +2,7 @@ package com.jetbrains.workshop
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -18,7 +19,10 @@ fun App() {
         var showContent by remember { mutableStateOf(false) }
         var text by remember { mutableStateOf("") }
         var loadedText by remember { mutableStateOf("") }
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(
+            Modifier.fillMaxWidth().safeDrawingPadding(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
             TextField(value = text, onValueChange = { text = it })
             Button(onClick = {
                 saveString("my-key", text)
