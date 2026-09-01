@@ -6,6 +6,8 @@ plugins {
 }
 
 kotlin {
+    jvmToolchain(21)
+
     android {
         namespace = "com.jetbrains.workshop.shared"
         compileSdk = libs.versions.android.compileSdk.get().toInt()
